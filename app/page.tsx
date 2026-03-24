@@ -232,7 +232,7 @@ function TrustIcon({ item }: { item: string }) {
 
 export default function Home() {
   return (
-    <main className="bg-[#f8fafc] text-stone-950">
+    <main className="overflow-x-hidden bg-[#f8fafc] text-stone-950">
       <header className="sticky top-0 z-40 bg-[#f8fafc]/94 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <a href="#" className="flex min-w-0 items-center">
