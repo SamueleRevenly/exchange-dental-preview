@@ -1,3 +1,7 @@
+ "use client";
+
+import { useEffect, useState } from "react";
+
 const services = [
   {
     name: "Preventive Care",
@@ -231,6 +235,23 @@ function TrustIcon({ item }: { item: string }) {
 }
 
 export default function Home() {
+  const [hideStickyCta, setHideStickyCta] = useState(false);
+
+  useEffect(() => {
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideStickyCta(entry.isIntersecting);
+      },
+      { threshold: 0.08 }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="overflow-x-hidden bg-[#f8fafc] text-stone-950">
       <header className="sticky top-0 z-40 bg-[#f8fafc]/94 backdrop-blur-xl">
@@ -1380,7 +1401,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <footer id="site-footer" className="px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-7xl text-center">
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10">
             <h3 className="text-[2rem] font-semibold tracking-[-0.03em] text-stone-950 sm:text-[2.1rem]">
@@ -1448,7 +1469,13 @@ export default function Home() {
         </div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-3 z-50 px-2 sm:bottom-4 sm:px-3">
+      <div
+        className={`fixed inset-x-0 bottom-3 z-50 px-2 transition duration-250 sm:bottom-4 sm:px-3 ${
+          hideStickyCta
+            ? "pointer-events-none translate-y-24 opacity-0"
+            : "translate-y-0 opacity-100"
+        }`}
+      >
         <div className="mx-auto flex w-full max-w-[calc(100vw-12px)] items-center justify-center gap-2 sm:max-w-[calc(100vw-24px)]">
           <div className="min-w-0 flex-1 rounded-[18px] border border-stone-200/80 bg-white/95 p-2 shadow-[0_12px_30px_rgba(28,25,23,0.09)] backdrop-blur sm:px-7 sm:py-4">
             <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
