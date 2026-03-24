@@ -255,7 +255,37 @@ export default function Home() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <details className="relative md:hidden">
+              <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-[12px] border border-stone-200 bg-white text-stone-700">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  className="h-5 w-5 stroke-[1.8]"
+                  aria-hidden="true"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+                </svg>
+              </summary>
+              <div className="absolute right-0 top-12 z-50 w-52 rounded-[14px] border border-stone-200 bg-white p-2 shadow-[0_16px_36px_rgba(15,23,42,0.12)]">
+                <a href="#services" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
+                  Services
+                </a>
+                <a href="#why-us" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
+                  Why Us
+                </a>
+                <a href="#team" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
+                  Team
+                </a>
+                <a href="#reviews" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
+                  Reviews
+                </a>
+                <a href="#faq" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
+                  FAQ
+                </a>
+              </div>
+            </details>
             <a
               href="facetime://6469701601"
               className="hidden items-center gap-1.5 text-sm font-medium text-stone-600 transition hover:text-stone-950 sm:flex"
@@ -274,7 +304,7 @@ export default function Home() {
               href="https://www.nexhealth.com/appt/the-exchange-dental-group"
               target="_blank"
               rel="noreferrer"
-              className="rounded-[18px] bg-[#2155f5] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,85,245,0.22)] transition hover:bg-[#1947d4] sm:px-5"
+              className="rounded-[14px] bg-[#2155f5] px-3.5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,85,245,0.22)] transition hover:bg-[#1947d4] sm:rounded-[18px] sm:px-5"
             >
               Book Appointment
             </a>
@@ -282,8 +312,8 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[40px] bg-stone-950 shadow-[0_28px_90px_rgba(28,25,23,0.12)]">
+      <section className="px-0 pt-0 sm:px-6 sm:pt-6 lg:px-8">
+        <div className="mx-auto max-w-none overflow-hidden rounded-none bg-stone-950 shadow-[0_28px_90px_rgba(28,25,23,0.12)] sm:max-w-7xl sm:rounded-[40px]">
           <div className="relative isolate overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80"
@@ -308,7 +338,23 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mx-auto mt-14 grid max-w-6xl gap-px overflow-hidden rounded-[32px] border border-white/10 bg-white/6 text-left backdrop-blur-md md:grid-cols-3">
+              <div className="mx-auto mt-10 w-full max-w-full overflow-hidden md:hidden">
+                <div className="flex w-max items-center gap-3 animate-[heroMarquee_26s_linear_infinite] pr-3">
+                  {[...trustItems, ...trustItems].map((item, index) => (
+                    <div
+                      key={`${item}-${index}`}
+                      className="flex items-center gap-3 whitespace-nowrap rounded-full border border-white/10 bg-white/8 px-4 py-3 text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                    >
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
+                        <TrustIcon item={item} />
+                      </span>
+                      <p className="text-[0.93rem] font-medium">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mx-auto mt-14 hidden max-w-6xl gap-px overflow-hidden rounded-[32px] border border-white/10 bg-white/6 text-left backdrop-blur-md md:grid md:grid-cols-3">
                 {trustItems.map((item) => (
                   <div
                     key={item}
@@ -1038,6 +1084,15 @@ export default function Home() {
           </div>
         </div>
         <style>{`
+          @keyframes heroMarquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
           .carousel-shell {
             position: relative;
             padding-inline: 3rem;
@@ -1394,36 +1449,43 @@ export default function Home() {
       </footer>
 
       <div className="fixed inset-x-0 bottom-3 z-50 px-2 sm:bottom-4 sm:px-3">
-        <div className="mx-auto flex w-full max-w-[calc(100vw-16px)] items-center justify-center gap-1.5 sm:max-w-[calc(100vw-24px)] sm:gap-2">
-          <div className="flex min-w-0 flex-1 items-center gap-5 rounded-[18px] border border-stone-200/80 bg-white/95 px-6 py-3.5 shadow-[0_12px_30px_rgba(28,25,23,0.09)] backdrop-blur sm:px-7 sm:py-4">
-            <a
-              href="tel:+16469701601"
-              className="flex min-w-0 flex-[1.28] items-center gap-4 rounded-[14px] px-4 py-3 text-left text-stone-800 transition hover:bg-stone-50"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                className="h-5.5 w-5.5 shrink-0 stroke-[1.7] text-stone-700"
-                aria-hidden="true"
+        <div className="mx-auto flex w-full max-w-[calc(100vw-12px)] items-center justify-center gap-2 sm:max-w-[calc(100vw-24px)]">
+          <div className="min-w-0 flex-1 rounded-[18px] border border-stone-200/80 bg-white/95 p-2 shadow-[0_12px_30px_rgba(28,25,23,0.09)] backdrop-blur sm:px-7 sm:py-4">
+            <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+              <a
+                href="tel:+16469701601"
+                className="flex min-w-0 w-full items-center gap-3 rounded-[12px] px-3 py-2.5 text-left text-stone-800 transition hover:bg-stone-50 sm:flex-[1.28] sm:gap-4 sm:px-4 sm:py-3"
               >
-                <path d="M5 4.75h3.5l1.75 4.25-2.1 1.8a14.2 14.2 0 0 0 5.05 5.05L15 13.75l4.25 1.75V19a1.75 1.75 0 0 1-1.9 1.75C9.57 20.22 3.78 14.43 3.25 6.65A1.75 1.75 0 0 1 5 4.75Z" />
-              </svg>
-              <span className="min-w-0 text-[1.08rem] leading-none sm:text-[1.12rem]">
-                <span className="font-medium text-stone-950">Call now</span>
-                <span className="ml-3 text-stone-500">(646) 970-1601</span>
-              </span>
-            </a>
-            <a
-              href="https://www.nexhealth.com/appt/the-exchange-dental-group"
-              target="_blank"
-              rel="noreferrer"
-              className="flex-[0.88] rounded-[12px] bg-[#2155f5] px-7 py-5 text-center text-[1.04rem] font-medium text-white transition hover:bg-[#1947d4] sm:text-[1.08rem]"
-            >
-              Request Appointment
-            </a>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  className="h-5 w-5 shrink-0 stroke-[1.7] text-stone-700 sm:h-5.5 sm:w-5.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 4.75h3.5l1.75 4.25-2.1 1.8a14.2 14.2 0 0 0 5.05 5.05L15 13.75l4.25 1.75V19a1.75 1.75 0 0 1-1.9 1.75C9.57 20.22 3.78 14.43 3.25 6.65A1.75 1.75 0 0 1 5 4.75Z" />
+                </svg>
+                <span className="min-w-0 text-[0.95rem] leading-none sm:text-[1.12rem]">
+                  <span className="font-medium text-stone-950">Call now</span>
+                  <span className="ml-2 text-stone-500 sm:ml-3">(646) 970-1601</span>
+                </span>
+              </a>
+              <a
+                href="https://www.nexhealth.com/appt/the-exchange-dental-group"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full shrink-0 rounded-[10px] bg-[#2155f5] px-4 py-2.5 text-center text-[0.92rem] font-medium text-white transition hover:bg-[#1947d4] sm:w-auto sm:flex-[0.88] sm:rounded-[12px] sm:px-7 sm:py-5 sm:text-[1.08rem]"
+              >
+                Request Appointment
+              </a>
+            </div>
           </div>
-          <div className="pointer-events-none flex h-[72px] w-[72px] items-center justify-center rounded-full border border-stone-200 bg-white/95 shadow-[0_12px_30px_rgba(28,25,23,0.09)] backdrop-blur">
+
+          <a
+            href="#"
+            className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white/95 shadow-[0_12px_30px_rgba(28,25,23,0.09)] backdrop-blur sm:h-[72px] sm:w-[72px]"
+            aria-label="Live chat"
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -1437,7 +1499,7 @@ export default function Home() {
                 fill="currentColor"
               />
             </svg>
-          </div>
+          </a>
         </div>
       </div>
     </main>
