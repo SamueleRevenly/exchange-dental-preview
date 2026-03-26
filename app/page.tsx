@@ -254,29 +254,9 @@ export default function Home() {
 
   return (
     <main className="overflow-x-hidden bg-[#f8fafc] text-stone-950">
-      <header className="sticky top-0 z-40 bg-[#f8fafc]/94 backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-40 bg-[#f8fafc]/94 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#" className="flex min-w-0 items-center">
-            <img
-              src="/clients/exchange/logo.png"
-              alt="The Exchange Dental Group"
-              className="h-11 w-auto sm:h-12"
-            />
-          </a>
-
-          <nav className="hidden items-center gap-9 text-[0.96rem] text-stone-600 md:flex">
-            <a href="#services" className="transition hover:text-stone-950">
-              Services
-            </a>
-            <a href="#team" className="transition hover:text-stone-950">
-              Team
-            </a>
-            <a href="#reviews" className="transition hover:text-stone-950">
-              Reviews
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex min-w-0 items-center gap-2">
             <details className="relative md:hidden">
               <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-[12px] border border-stone-200 bg-white text-stone-700">
                 <svg
@@ -289,7 +269,7 @@ export default function Home() {
                   <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
                 </svg>
               </summary>
-              <div className="absolute right-0 top-12 z-50 w-52 rounded-[14px] border border-stone-200 bg-white p-2 shadow-[0_16px_36px_rgba(15,23,42,0.12)]">
+              <div className="absolute left-0 top-12 z-50 w-52 rounded-[14px] border border-stone-200 bg-white p-2 shadow-[0_16px_36px_rgba(15,23,42,0.12)]">
                 <a href="#services" className="block rounded-[10px] px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50">
                   Services
                 </a>
@@ -307,6 +287,29 @@ export default function Home() {
                 </a>
               </div>
             </details>
+
+            <a href="#" className="flex min-w-0 items-center">
+              <img
+                src="/clients/exchange/logo.png"
+                alt="The Exchange Dental Group"
+                className="h-11 w-auto sm:h-12"
+              />
+            </a>
+          </div>
+
+          <nav className="hidden items-center gap-9 text-[0.96rem] text-stone-600 md:flex">
+            <a href="#services" className="transition hover:text-stone-950">
+              Services
+            </a>
+            <a href="#team" className="transition hover:text-stone-950">
+              Team
+            </a>
+            <a href="#reviews" className="transition hover:text-stone-950">
+              Reviews
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-2 sm:gap-4">
             <a
               href="facetime://6469701601"
               className="hidden items-center gap-1.5 text-sm font-medium text-stone-600 transition hover:text-stone-950 sm:flex"
@@ -327,11 +330,13 @@ export default function Home() {
               rel="noreferrer"
               className="rounded-[14px] bg-[#2155f5] px-3.5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,85,245,0.22)] transition hover:bg-[#1947d4] sm:rounded-[18px] sm:px-5"
             >
-              Book Appointment
+              <span className="sm:hidden">Book</span>
+              <span className="hidden sm:inline">Book Appointment</span>
             </a>
           </div>
         </div>
       </header>
+      <div className="h-[76px]" aria-hidden="true" />
 
       <section className="px-0 pt-0 sm:px-6 sm:pt-6 lg:px-8">
         <div className="mx-auto max-w-none overflow-hidden rounded-none bg-stone-950 shadow-[0_28px_90px_rgba(28,25,23,0.12)] sm:max-w-7xl sm:rounded-[40px]">
