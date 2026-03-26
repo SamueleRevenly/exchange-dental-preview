@@ -325,7 +325,7 @@ export default function Home() {
               <span>(646) 970-1601</span>
             </a>
             <a
-              href="https://www.nexhealth.com/appt/the-exchange-dental-group"
+              href="https://app.nexhealth.com/appt/TheExchangeDentalGroup"
               target="_blank"
               rel="noreferrer"
               className="rounded-[14px] bg-[#2155f5] px-3.5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,85,245,0.22)] transition hover:bg-[#1947d4] sm:rounded-[18px] sm:px-5"
@@ -408,7 +408,7 @@ export default function Home() {
 
           <div className="mt-3.5">
             <a
-              href="https://www.nexhealth.com/appt/the-exchange-dental-group"
+              href="https://app.nexhealth.com/appt/TheExchangeDentalGroup"
               target="_blank"
               rel="noreferrer"
               className="flex min-h-[68px] cursor-pointer items-center justify-between rounded-[16px] border border-stone-200/90 bg-[#fffefd] px-4 py-2.5 text-stone-900 transition duration-200 hover:bg-stone-50 hover:border-stone-300 sm:px-5"
@@ -1315,7 +1315,7 @@ export default function Home() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://www.nexhealth.com/appt/the-exchange-dental-group"
+                href="https://app.nexhealth.com/appt/TheExchangeDentalGroup"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-[16px] bg-[#2155f5] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#1947d4]"
@@ -1503,7 +1503,7 @@ export default function Home() {
                 </span>
               </a>
               <a
-                href="https://www.nexhealth.com/appt/the-exchange-dental-group"
+                href="https://app.nexhealth.com/appt/TheExchangeDentalGroup"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full shrink-0 rounded-[10px] bg-[#2155f5] px-4 py-2.5 text-center text-[0.92rem] font-medium text-white transition hover:bg-[#1947d4] sm:w-auto sm:flex-[0.88] sm:rounded-[12px] sm:px-7 sm:py-5 sm:text-[1.08rem]"
