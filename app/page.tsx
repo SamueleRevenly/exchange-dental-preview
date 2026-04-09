@@ -330,7 +330,7 @@ export default function Home() {
               rel="noreferrer"
               className="rounded-[14px] bg-[#2155f5] px-3.5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,85,245,0.22)] transition hover:bg-[#1947d4] sm:rounded-[18px] sm:px-5"
             >
-              <span className="sm:hidden">Book</span>
+              <span className="sm:hidden">Book now</span>
               <span className="hidden sm:inline">Book Appointment</span>
             </a>
           </div>
